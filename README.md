@@ -19,14 +19,14 @@ flowchart LR
 |---|---|---|---|
 | [1. Artifact correction](docs/01-artifact-correction.md) | Aligns slices, removes curtaining stripes, denoises, and enhances contrast | Wavelet–Fourier destriping (Python port of the MATLAB workflow) | Corrected volume |
 | [2. Segmentation](docs/02-segmentation.md) | Labels the target structure, with iterative training to keep manual annotation low | nnU-Net v2 (ResEnc presets), optional filter toolbox (CLAHE, Frangi, denoising) | Semantic mask |
-| [3. Proofreading](docs/03-proofreading.md) | Splits the mask into individual objects, ranks likely errors, and fixes them by hand | [CryovEM-proofreader](TODO-link-to-repo) (napari) | Instance labels + cell map |
+| [3. Proofreading](docs/03-proofreading.md) | Splits the mask into individual objects, ranks likely errors, and fixes them by hand | [CryovEM-proofreader](https://github.com/risakawasaki/CryovEM-proofreader) (napari) | Instance labels + cell map |
 | [4. Statistical analysis](docs/04-statistical-analysis.md) | Measures each object's shape, applies quality filters, and describes the sample per cell | PyRadiomics shape features, pandas, matplotlib | Object table, summaries, plots |
 
 Proofread labels can also be fed back into training to improve the segmentation model (see [3. Proofreading](docs/03-proofreading.md#feeding-corrections-back-into-training)).
 
 ## Repository layout
 ```
-cryo-vem-pipeline/
+CryovEM-workflow/
 ├── README.md
 ├── docs/
 │   ├── 01-artifact-correction.md
@@ -49,12 +49,12 @@ cryo-vem-pipeline/
         ├── describe_sample.py        ← summaries, redundant features, plots
         └── volume_fraction.py        ← optional volume fraction per cell
 ```
-The proofreading tool lives in its own repository: [vem-proofreader](TODO-link-to-repo).
+The proofreading tool lives in its own repository: [CryoveEM-proofreader](https://github.com/risakawasaki/CryovEM-proofreader).
 
 ## Getting started
 ```bash
-git clone TODO-link-to-this-repo cryo-vem-pipeline
-cd cryo-vem-pipeline
+git clone https://github.com/risakawasaki/CryovEM-workflow CryovEM-workflow
+cd CryovEM-workflow
 ```
 
 Then follow the steps in order, starting with [1. Artifact correction](docs/01-artifact-correction.md). Each page lists its inputs, requirements, procedure, outputs, a quality checklist, and troubleshooting.
