@@ -157,7 +157,7 @@ ORS Dragonfly or Amira has this capability. If those are unavailable to you, you
 from skimage.feature import peak_local_max
 from skimage.segmentation import watershed
 
-voxel_size = (TODO, TODO, TODO)   # (z, y, x) in nm
+voxel_size = (20, 5, 5)   # (z, y, x) in nm CHANGE THIS IF NECESSARY!
 edt = ndi.distance_transform_edt(mask, sampling=voxel_size)
 
 # One seed per object at local maxima of the EDT
