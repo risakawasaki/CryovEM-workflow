@@ -19,7 +19,7 @@ flowchart LR
 |---|---|---|---|
 | [1. Artifact correction](docs/01-artifact-correction.md) | Aligns slices, removes curtaining stripes, denoises, and enhances contrast | Wavelet–Fourier destriping (Python port of the MATLAB workflow) | Corrected volume |
 | [2. Segmentation](docs/02-segmentation.md) | Labels the target structure, with iterative training to keep manual annotation low | nnU-Net v2 (ResEnc presets), optional filter toolbox (CLAHE, Frangi, denoising) | Semantic mask |
-| [3. Proofreading](docs/03-proofreading.md) | Splits the mask into individual objects, ranks likely errors, and fixes them by hand | [vem-proofreader](TODO-link-to-repo) (napari) | Instance labels + cell map |
+| [3. Proofreading](docs/03-proofreading.md) | Splits the mask into individual objects, ranks likely errors, and fixes them by hand | [CryovEM-proofreader](TODO-link-to-repo) (napari) | Instance labels + cell map |
 | [4. Statistical analysis](docs/04-statistical-analysis.md) | Measures each object's shape, applies quality filters, and describes the sample per cell | PyRadiomics shape features, pandas, matplotlib | Object table, summaries, plots |
 
 Proofread labels can also be fed back into training to improve the segmentation model (see [3. Proofreading](docs/03-proofreading.md#feeding-corrections-back-into-training)).
