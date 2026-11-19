@@ -272,6 +272,7 @@ sato = filters.sato(img_f, sigmas=[1, 2, 3], black_ridges=True)
 meijering = filters.meijering(img_f, sigmas=[1, 2, 3], black_ridges=True)
 ```
 Our python implementation of Frangi-vesselness filtering can be found [here](../scripts/) as `frangi_filter.py`. 
+The parameters we used in our script for cristae and boundary detection are `sigmas = [4, 7, 1]` with `threshold = 20`.
 
 All three also accept 3D volumes. Tune `sigmas` and `black_ridges` on one slice until the membranes stand out. View the result in ORS Dragonfly, Amira, or napari next to the image and predictions.
 
