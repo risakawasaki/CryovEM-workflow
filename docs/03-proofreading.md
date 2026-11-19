@@ -1,7 +1,7 @@
 # 3. Proofreading
 
 ## Goal
-Turn the semantic segmentation into instance labels, where each object has exactly one ID, using [vem-proofreader](TODO-link-to-repo). The tool:
+Turn the semantic segmentation into instance labels, where each object has exactly one ID, using [CryovEM-proofreader](https://github.com/risakawasaki/CryovEM-proofreader). The tool:
 
 1. **Bulds instances** from a semantic mask (or loads existing ones), splitting touching objects conservatively.
 2. **Ranks what to review.** Every instance gets a score from simple geometric checks, so you review the likely errors first instead of the whole volume.
@@ -23,13 +23,13 @@ Turn the semantic segmentation into instance labels, where each object has exact
 - Python **3.10-3.12** (napari doesn't support 3.13+ yet; everything except the viewer runs on any recent Python)
 - Packages in the tool's `requirements.txt`: `numpy`, `pandas`, `scipy`, `scikit-image`, `mrcfile`, `napari`, `magicgui`, `qtpy`, `Pillow`, `PySide6`, plus `tifffile` (TIFF) and `nibabel` (NIfTI) for those formats
 ```bash
-git clone TODO-link-to-repo vem-proofreader
-cd vem-proofreader
-conda create -n vem python=3.11
-conda activate vem
+git clone https://github.com/risakawasaki/CryovEM-proofreader CryovEM-proofreader
+cd CryovEM-proofreader
+conda create -n cryovem python=3.11
+conda activate cryovem
 pip install -r requirements.txt
 ```
-The modules import each other by name, so run the commands from inside the `vem-proofreader` folder.
+The modules import each other by name, so run the commands from inside the `CryovEM-proofreader` folder.
 
 ## Overview
 ```mermaid
