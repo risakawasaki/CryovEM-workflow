@@ -79,7 +79,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True, help="path to input MRC or TIF volume [z, y, x]")
     ap.add_argument("--output", required=True, help="directory to save output")
-    ap.add_argument("--sigmas", nargs=3, type=float, default=[2, 7, 1],
+    ap.add_argument("--sigmas", nargs=3, type=float, default=[4, 7, 1],
                     help="Frangi scales as min max step, inclusive (4 7 1 -> 4,5,6,7)")
     ap.add_argument("--alpha", type=float, default=0.5, help="Frangi alpha (affects 3D plate-like structures only)")
     ap.add_argument("--beta", type=float, default=0.5, help="Frangi beta")
