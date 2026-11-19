@@ -90,8 +90,6 @@ Open the images side by side and choose the level and sigma that remove the stri
 - Loss of fine detail such as membranes
 - New artifacts
 
-`TODO`:add a comparison grid -`images/parameter_sweep.png`
-
 #### Step 3: Select the wavelet
 Use the level and sigma chosen in Step 2:
 ```bash
@@ -126,9 +124,6 @@ The wavelet with the highest score is printed and marked on a five-panel plot sa
 | `--csv` | none | Save the full results table |
 
 > **Interpreting the scores.** Min-max normalization stretches small differences. For example, wavelets with stripe reduction of 99.6% and 97% can end up far apart in the score. Look at the raw values in the table or plot as well as the final score, and confirm the selected wavelet visually on the test slice before processing the full stack. The stripe metric also assumes stripes run the full height of the slice; partial-height stripe is measured, but diluted.
-
-`TODO`: add the plot from your data → `images/wavelet-selection.png`
-`TODO`: add a before/after comparison → `images/destriping-before-after.png`
 
 #### Step 4: Apply to the full stack
 ```bash
