@@ -72,7 +72,7 @@ Choose one starting point:
 **Option B: Corrected predictions from a pretrained model.**
 If a pretrained model already works reasonably on your data (for example, [MitoNet](https://pmc.ncbi.nlm.nih.gov/articles/PMC9883049/) for mitochondria), predict a set of slices with it and correct the errors in annotation software of choice. Correcting is usually much faster than annotating from scratch. Check a few predictions first: if most need to be redrawn, use Option A.
 
-> **Tip:** Filtered versions of the image, such as CLAHE-enhanced or Frangi ridge layer, can make boundaries easier to see while annotating and also help the trained models to perform better.
+> **Tip:** Filtered versions of the image, such as CLAHE-enhanced or  ridge layer, can make boundaries easier to see while annotating and also help the trained models to perform better.
 > Label only slices you have fully checked. Unlabeled target pixels are learned as background.
 
 ### 2.3 Format the dataset
@@ -195,7 +195,7 @@ A model trained on filtered images performs poorly on unfiltered ones, and vice 
 **Filtered image as an extra channel.** Instead of replacing the original, you can give nnU-Net both: the original as channel 0 and a filter output as channel 1. The model then learns how much to rely on each. Save the filter output as `<case>_0001.tif` next to `<case>_0000.tif`, and list both channels in `dataset.json`:
 
 ```json
-"channel_names": {"0": "EM", "1": "Frangi"}
+"channel_names": {"0": "EM", "1": ""}
 ```
 Apply filters after [1. Artifact correction](01-artifact-correction.md); most of them also amplify noise and any remaining stripes. When preprocessing whole volumes, filter in 3D where possible. Filtering each slice on its own can give the same structure different values in neighboring slices, which shows up as banding in XZ/YZ views.
 
@@ -271,7 +271,7 @@ frangi = filters.frangi(img_f, sigmas=[1, 2, 3], black_ridges=True)
 sato = filters.sato(img_f, sigmas=[1, 2, 3], black_ridges=True)
 meijering = filters.meijering(img_f, sigmas=[1, 2, 3], black_ridges=True)
 ```
-Our python implementation of Frangi-vesselness filtering can be found [here](scripts/frangi_filter.py). 
+Our python implementation of Frangi-vesselness filtering can be found [here](../scripts/fragi_filter.py). 
 
 All three also accept 3D volumes. Tune `sigmas` and `black_ridges` on one slice until the membranes stand out. View the result in ORS Dragonfly, Amira, or napari next to the image and predictions.
 
